@@ -1,0 +1,21 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Log in to GHCR
+      run: echo "${{ secrets.ghcr_token }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+    - name: Build Image
+      run: docker build -t ghcr.io/${{ sc3p73r-it }}/nodejsapp:v1 .
+
+    - name: Push Image
+      run: docker push ghcr.io/${{ github.sc3p73r-it }}/nodejsapp:v1
