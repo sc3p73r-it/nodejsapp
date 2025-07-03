@@ -15,7 +15,7 @@ jobs:
       run: echo "${{ secrets.ghcr_token }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
     - name: Build Image
-      run: docker build -t ghcr.io/${{ sc3p73r-it }}/nodejsapp:v1 .
+      run: docker build -t ghcr.io/sc3p73r-it/nodejsapp:v1 .
 
     - name: Push Image
       run: docker push ghcr.io/sc3p73r-it/nodejsapp:v1
