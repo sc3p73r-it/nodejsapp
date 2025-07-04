@@ -15,7 +15,7 @@ jobs:
       run: echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io --username sc3p73r-it --password-stdin
 
     - name: Build Image
-      run: docker build -t ghcr.io/sc3p73r-it/nodejsapp:v1 .
+      run: docker build -t ghcr.io/sc3p73r-it/nodejsapp:v2 .
 
     - name: Push Image
-      run: docker push ghcr.io/sc3p73r-it/nodejsapp:v1
+      run: docker push ghcr.io/sc3p73r-it/nodejsapp:v2
